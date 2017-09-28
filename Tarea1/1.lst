@@ -1,0 +1,36 @@
+0001   0000 21 00 19    	LD HL, 1900H
+0002   0003 36 10       	LD (HL), 10H
+0003   0005 21 01 19    	LD HL, 1901H
+0004   0008 36 00       	LD (HL), 00H	;DIRECCIÓN DEL ARREGLO
+0005   000A             
+0006   000A 21 02 19    	LD HL, 1902H
+0007   000D 36 05       	LD (HL), 05H	;NUMERO DE ELEMENTOS
+0008   000F 46          	LD B, (HL)	;CONTADOR
+0009   0010             
+0010   0010 21 00 19    	LD HL, 1900H	;CARGA LA DIRECCION DE LOS DATOS EN DE
+0011   0013 56          	LD D, (HL)
+0012   0014 21 01 19    	LD HL, 1901H
+0013   0017 5E          	LD E, (HL)
+0014   0018             	
+0015   0018             ARRAYLOOP:		;LLENADO DEL ARREGLO
+0016   0018 DB 00       	IN A, (00H)
+0017   001A 12          	LD (DE), A
+0018   001B 13          	INC DE
+0019   001C FE 00       	CP 00H
+0020   001E 10 F8       	DJNZ ARRAYLOOP	
+0021   0020             
+0022   0020 21 02 19    	LD HL, 1902H
+0023   0023 46          	LD B, (HL)
+0024   0024 21 00 19    	LD HL, 1900H
+0025   0027 56          	LD D, (HL)
+0026   0028 21 01 19    	LD HL, 1901H
+0027   002B 5E          	LD E, (HL)
+0028   002C             SMALLEST:
+0029   002C 1A          	LD A, (DE) 
+0030   002D             	
+0031   002D             
+0032   002D             STORE:			;SALIDA DEL DATO
+0033   002D 7E          	LD A, (HL)
+0034   002E D3 00       	OUT (00H), A
+0035   0030 76          	HALT
+Number of errors = 0

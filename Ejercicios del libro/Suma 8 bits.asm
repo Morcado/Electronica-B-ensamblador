@@ -1,0 +1,16 @@
+	LD A, (ADR1)
+	LD HL, ADR2
+	
+	ADD A, (HL)
+	LD (ADR3), A
+	
+	OUT (00H), A
+	;LD A, (ADR1-1)
+	;DEC HL
+
+	;ADC A, (HL)
+	;LD (ADR3-1), A
+
+ADR1 EQU 0100H
+ADR2 EQU 0120H
+ADR3 EQU 0200H
