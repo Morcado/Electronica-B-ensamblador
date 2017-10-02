@@ -1,0 +1,27 @@
+0001   0000             ;Práctica 6
+0002   0000             ;Serie de fibonacci
+0003   0000             ;Fecha: 28 de septiembre de 2017
+0004   0000             ;Autor: Oscar Armando González Patiño
+0005   0000             
+0006   0000 DB 00       	IN A, (00H) ;Numero de sumas
+0007   0002             	
+0008   0002 01 01 00    	LD BC, 0001H
+0009   0005 11 01 00    	LD DE, 0001H
+0010   0008 21 00 00    	LD HL, 0000H
+0011   000B             	
+0012   000B             SUMA:
+0013   000B             	
+0014   000B 19          	ADD HL, DE
+0015   000C             	;DEC HL
+0016   000C             
+0017   000C 42          	LD B, D
+0018   000D 4B          	LD C, E
+0019   000E             	;LD BC, DE
+0020   000E 54          	LD D, H
+0021   000F 5D          	LD E, L
+0022   0010 D9          	EXX
+0023   0011             	;LD DE, HL
+0024   0011 3D          	DEC A
+0025   0012 C2 0B 00    	JP NZ, SUMA
+0026   0015 76          	HALT	
+Number of errors = 0

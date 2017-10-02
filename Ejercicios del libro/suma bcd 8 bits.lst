@@ -1,0 +1,12 @@
+0001   0000             ;Suma BCD 8 bits
+0002   0000             ;Oscar Armando González Patiño
+0003   0000             ;30 de septiembre de 2017
+0004   0000             
+0005   0000 3E 22       	LD A, 22H
+0006   0002 C6 39       	ADD A, 39H
+0007   0004 27          	DAA
+0008   0005             	
+0009   0005 32 00 01    	LD (ADR), A
+0010   0008             
+0011   0008             ADR EQU 0100H
+Number of errors = 0

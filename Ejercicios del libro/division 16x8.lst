@@ -1,0 +1,30 @@
+0001   0000             ;division 16x8
+0002   0000             ;2 de octubre de 2017
+0003   0000             ;Oscar Armando González Patiño
+0004   0000             
+0005   0000             DIV168:
+0006   0000 3A 50 00    	LD A, (DVSAD) ;divisor 8 bits
+0007   0003 57          	LD D, A
+0008   0004 1E 00       	LD E, 0
+0009   0006 2A 60 00    	LD HL, (DVDAD) ;dividendo 16 bits
+0010   0009 06 08       	LD B, 8
+0011   000B             
+0012   000B             DIV:
+0013   000B AF          	XOR A ;borra acarreo
+0014   000C ED 52       	SBC HL, DE ;dividendo - divisor
+0015   000E 23          	INC HL ;cociente +1
+0016   000F F2 14 00    	JP P, NOADD ;si el resto es positivo entonces NOADD
+0017   0012             
+0018   0012 19          	ADD HL, DE ;restaura si es necesario
+0019   0013 2B          	DEC HL ;cociente -1
+0020   0014             
+0021   0014             NOADD:
+0022   0014 29          	ADD HL, HL ;dezplaza dividendo a la izq
+0023   0015 10 F4       	DJNZ DIV
+0024   0017 22 70 00    	LD (RESP), HL
+0025   001A 76          	HALT
+0026   001B             
+0027   001B             DVSAD EQU 50H
+0028   001B             DVDAD EQU 60H
+0029   001B             RESP EQU 70H
+Number of errors = 0

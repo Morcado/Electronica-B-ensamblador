@@ -1,0 +1,21 @@
+0001   0000             ;Division de 8 bits
+0002   0000             ;2 de octubre de 2017
+0003   0000             ;Oscar Armando González Patiño
+0004   0000             
+0005   0000             DIV88:
+0006   0000 AF          	XOR A
+0007   0001 06 08       	LD B, 8
+0008   0003             
+0009   0003             LOOP88:
+0010   0003 CB 13       	RL E
+0011   0005 17          	RLA
+0012   0006 91          	SUB C
+0013   0007 30 01       	JR NC, $ + 3
+0014   0009 81          	ADD A, C
+0015   000A 10 F7       	DJNZ LOOP88
+0016   000C 47          	LD B, A
+0017   000D 7B          	LD A, E
+0018   000E 17          	RLA
+0019   000F 2F          	CPL
+0020   0010 76          	HALT
+Number of errors = 0

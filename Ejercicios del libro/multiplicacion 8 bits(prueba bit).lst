@@ -1,0 +1,26 @@
+0001   0000             MPY88:
+0002   0000 ED 4B 50 00 	LD BC, (MPRAD) ;multiplicador
+0003   0004 06 08       	LD B, 8 ;Contador del bit
+0004   0006 ED 5B 60 00 	LD DE, (MPDAD) ;multiplicando
+0005   000A 16 00       	LD D, 0
+0006   000C 21 00 00    	LD HL, 0
+0007   000F             
+0008   000F             MULT:
+0009   000F             	;SRL C ;Dezplaza el bit del multiplicador al acarreo
+0010   000F CB 41       	BIT 0, C
+0011   0011 20 01       	JR NZ, NOADD ;Verifica el acarreo
+0012   0013 19          	ADD HL, DE ;Suma multiplicando
+0013   0014             	
+0014   0014             NOADD:
+0015   0014 CB 23       	SLA E ;desplaza multiplicando a la izquierda
+0016   0016 CB 12       	RL D ;lleva bit a D
+0017   0018 05          	DEC B
+0018   0019             
+0019   0019 C2 0F 00    	JP NZ, MULT
+0020   001C 22 70 00    	LD (RESAD), HL
+0021   001F 76          	HALT
+0022   0020             
+0023   0020             MPRAD EQU 0050H
+0024   0020             MPDAD EQU 0060H
+0025   0020             RESAD EQU 0070H
+Number of errors = 0

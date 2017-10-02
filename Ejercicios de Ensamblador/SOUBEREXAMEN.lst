@@ -1,0 +1,24 @@
+0001   0000             MAIN
+0002   0000 1E 08       	LD E,08H
+0003   0002 7B          	LD A,E
+0004   0003 21 00 00    	LD HL,0000H
+0005   0006 01 00 00    	LD BC,0000H
+0006   0009             
+0007   0009             LOOP	
+0008   0009 09          	ADD HL,BC
+0009   000A DA 1B 00    	JP C,TOHALT
+0010   000D 23          	INC HL
+0011   000E 23          	INC HL
+0012   000F 23          	INC HL
+0013   0010             	
+0014   0010 03          	INC BC
+0015   0011 03          	INC BC
+0016   0012 03          	INC BC
+0017   0013 3D          	DEC A
+0018   0014 B7          	OR A
+0019   0015 C2 09 00    	JP NZ,LOOP
+0020   0018 C3 1B 00    	JP TOHALT
+0021   001B             
+0022   001B             TOHALT
+0023   001B 76          	HALT
+Number of errors = 0

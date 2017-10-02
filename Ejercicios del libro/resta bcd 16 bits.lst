@@ -1,0 +1,23 @@
+0001   0000             ;Resta BCD 16 BITS
+0002   0000             ;Oscar Armando González Patiño
+0003   0000             ;30 de septiembre de 2017
+0004   0000             
+0005   0000             BCDPAK:
+0006   0000 06 03       	LD B, CUENTA
+0007   0002 11 20 01    	LD DE, N2	
+0008   0005 21 00 01    	LD HL, N1
+0009   0008 A7          	AND A ;ELIMINA ACARREO
+0010   0009             MENOS:
+0011   0009 1A          	LD A, (DE)
+0012   000A 9E          	SBC A, (HL)
+0013   000B 27          	DAA
+0014   000C 77          	LD (HL), A
+0015   000D             
+0016   000D 13          	INC DE
+0017   000E 23          	INC HL
+0018   000F 10 F8       	DJNZ MENOS
+0019   0011             
+0020   0011             CUENTA EQU 3
+0021   0011             N1 EQU 0100H
+0022   0011             N2 EQU 0120H
+Number of errors = 0

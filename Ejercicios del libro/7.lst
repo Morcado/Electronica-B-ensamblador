@@ -1,0 +1,14 @@
+0001   0000             ;resta 8 bits
+0002   0000 3A 00 01    	LD A, (ADR1)
+0003   0003 47          	LD B, A
+0004   0004 3A 20 01    	LD A, (ADR2)
+0005   0007 4F          	LD C, A
+0006   0008 78          	LD A, B
+0007   0009 A7          	AND A
+0008   000A 91          	SUB C
+0009   000B 32 40 01    	LD (ADR3), A
+0010   000E             
+0011   000E             ADR1 EQU 0100H
+0012   000E             ADR2 EQU 0120H
+0013   000E             ADR3 EQU 0140H
+Number of errors = 0

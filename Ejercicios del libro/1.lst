@@ -1,0 +1,17 @@
+0001   0000 3A 00 01    	LD A, (ADR1)
+0002   0003 21 20 01    	LD HL, ADR2
+0003   0006             	
+0004   0006 86          	ADD A, (HL)
+0005   0007 32 00 02    	LD (ADR3), A
+0006   000A             	
+0007   000A D3 00       	OUT (00H), A
+0008   000C             	;LD A, (ADR1-1)
+0009   000C             	;DEC HL
+0010   000C             
+0011   000C             	;ADC A, (HL)
+0012   000C             	;LD (ADR3-1), A
+0013   000C             
+0014   000C             ADR1 EQU 0100H
+0015   000C             ADR2 EQU 0120H
+0016   000C             ADR3 EQU 0200H
+Number of errors = 0
